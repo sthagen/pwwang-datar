@@ -3,9 +3,10 @@
 https://github.com/tidyverse/dplyr/blob/master/R/lead-lag.R
 """
 import numpy as np
-from pandas import Series
-from pandas.api.types import is_scalar
 from pipda import register_func
+
+from ..core.backends.pandas import Series
+from ..core.backends.pandas.api.types import is_scalar
 
 from ..core.contexts import Context
 from ..core.factory import dispatching
@@ -28,12 +29,12 @@ def _shift(x, n, default=None, order_by=None):
         newx = Series(x)
 
     if order_by is not None:
-        newx = newx.reset_index(drop=True)
+        # newx = newx.reset_index(drop=True)
         out = with_order(order_by, Series.shift, newx, n, fill_value=default)
     else:
         out = newx.shift(n, fill_value=default)
 
-    return out
+    return out if isinstance(x, Series) else out.values
 
 
 @register_func(None, context=Context.EVAL)

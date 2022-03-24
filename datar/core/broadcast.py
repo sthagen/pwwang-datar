@@ -28,16 +28,26 @@ from functools import singledispatch
 from typing import TYPE_CHECKING, Any, Tuple, Union
 
 import numpy as np
-from pandas import Categorical, DataFrame, Series, CategoricalIndex, Index
-from pandas.core.generic import NDFrame
-from pandas.core.groupby import DataFrameGroupBy, SeriesGroupBy, GroupBy
-from pandas.api.types import is_list_like
+from .backends.pandas import (
+    Categorical,
+    DataFrame,
+    Series,
+    CategoricalIndex,
+    Index,
+)
+from .backends.pandas.core.generic import NDFrame
+from .backends.pandas.core.groupby import (
+    DataFrameGroupBy,
+    SeriesGroupBy,
+    GroupBy,
+)
+from .backends.pandas.api.types import is_list_like
 
 from .tibble import Tibble, TibbleGrouped, TibbleRowwise
 from .utils import name_of, regcall, dict_get
 
 if TYPE_CHECKING:
-    from pandas import Grouper
+    from .backends.pandas import Grouper
 
 BroadcastingBaseType = Union[NDFrame, SeriesGroupBy]
 GroupedType = Union[GroupBy, TibbleGrouped]
@@ -525,7 +535,10 @@ def _(
         if isinstance(value, DataFrame) and value.index.size == 0:
             value.index = index
 
-        if not value.index.equals(index):
+        # if not value.index.equals(index):
+        if not value.index.equals(index) and frozenset(
+            value.index
+        ) != frozenset(index):
             raise ValueError("Value has incompatible index.")
 
         if isinstance(value, Series):
@@ -716,6 +729,7 @@ def _(value: SeriesGroupBy, name: str) -> Tibble:
 @init_tibble_from.register(DataFrameGroupBy)
 def _(value: Union[DataFrame, DataFrameGroupBy], name: str) -> Tibble:
     from ..tibble import as_tibble
+
     result = regcall(as_tibble, value)
 
     if name:

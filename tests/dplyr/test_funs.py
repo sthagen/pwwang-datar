@@ -8,7 +8,7 @@
 # testing functions in datar.dplyr.funs
 import pytest
 
-import pandas as pd
+from datar.core.backends import pandas as pd
 from datar.dplyr import (
     between,
     lead,
@@ -91,8 +91,11 @@ def test_lead_lag_return_x_if_n_eqs_0():
 
 
 def test_lead_lag_return_all_nas_if_n_eqs_lenx():
-    assert lead([1, 2], 2).fillna(0).tolist() == [0.0, 0.0]
-    assert lag([1, 2], 2).fillna(0).tolist() == [0.0, 0.0]
+    out = lead([1, 2], 2)
+    assert_iterable_equal(out, [NA, NA])
+
+    out = lag([1, 2], 2)
+    assert_iterable_equal(out, [NA, NA])
 
 
 def test_cumany_cumall_handle_nas_consistently():
@@ -223,7 +226,7 @@ def test_near():
 def test_nth_works_with_lists():
     x = [1, 2, 3]
     assert nth(x, 0) == 1  # 0-based
-    assert pd.isna(nth(x, 3))
+    assert pd.isnull(nth(x, 3))
     assert nth(x, 3, default=1) == 1
     assert_iterable_equal([first(x)], [1])
     assert_iterable_equal([last(x)], [3])
@@ -240,9 +243,9 @@ def test_nth_negative_index():
 
 def test_nth_index_past_ends_returns_default_value():
     x = [1, 2, 3, 4]
-    assert pd.isna(nth(x, 4))
-    assert pd.isna(nth(x, -5))
-    assert pd.isna(nth(x, 10))
+    assert pd.isnull(nth(x, 4))
+    assert pd.isnull(nth(x, -5))
+    assert pd.isnull(nth(x, 10))
 
 
 def test_nth_errors():

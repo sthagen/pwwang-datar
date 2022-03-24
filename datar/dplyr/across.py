@@ -4,10 +4,11 @@ See source https://github.com/tidyverse/dplyr/blob/master/R/across.R
 """
 from abc import ABC, abstractmethod
 
-from pandas.api.types import is_scalar
 from pipda import register_func, evaluate_expr
 from pipda.function import Function
 from pipda.utils import functype
+
+from ..core.backends.pandas.api.types import is_scalar
 
 from ..core.broadcast import add_to_tibble
 from ..core.tibble import Tibble, reconstruct_tibble
@@ -165,6 +166,24 @@ def across(
     The original API:
     https://dplyr.tidyverse.org/reference/across.html
 
+    Examples:
+        #
+        >>> iris >> mutate(across(c(f.Sepal_Length, f.Sepal_Width), round))
+            Sepal_Length  Sepal_Width  Petal_Length  Petal_Width    Species
+               <float64>    <float64>     <float64>    <float64>   <object>
+        0            5.0          4.0           1.4          0.2     setosa
+        1            5.0          3.0           1.4          0.2     setosa
+        ..           ...          ...           ...          ...        ...
+
+        >>> iris >> group_by(f.Species) >> summarise(
+        >>>     across(starts_with("Sepal"), mean)
+        >>> )
+              Species  Sepal_Length  Sepal_Width
+             <object>     <float64>    <float64>
+        0      setosa         5.006        3.428
+        1  versicolor         5.936        2.770
+        2   virginica         6.588        2.974
+
     Args:
         _data: The dataframe.
         *args: If given, the first 2 elements should be columns and functions
@@ -218,7 +237,7 @@ def c_across(
         _cols: The columns
 
     Returns:
-        A series
+        A rowwise tibble
     """
     _data = _context.meta.get("input_data", _data)
 

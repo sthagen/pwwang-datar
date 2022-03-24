@@ -9,9 +9,22 @@ theme:
     palette:
         primary: black
     name: 'material'
-    # font:
-    #   text: 'Ubuntu'
-    #   code: 'Ubuntu Mono'
+    font:
+      text:
+        - FreightSans
+        - "Helvetica Neue"
+        - Helvetica
+        - Arial
+        - sans-serif
+      code:
+        - IBMPlexMono
+        - SFMono-Regular
+        - Menlo
+        - Monaco
+        - Consolas
+        - "Liberation Mono"
+        - "Courier New"
+        - monospace
     features:
         - navigation.top
 markdown_extensions:
@@ -46,6 +59,7 @@ nav:
         'datar': 'reference-maps/datar.md'
     - 'Porting rules': 'porting_rules.md'
     - 'Import datar': 'import.md'
+    - 'Backends': 'backends.md'
     - 'The f-expression': 'f.md'
     - 'Caveats':
         'Indexing/Selection': 'caveats/indexing.md'
