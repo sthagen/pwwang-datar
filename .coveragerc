@@ -1,6 +1,6 @@
-
 [report]
 exclude_lines =
-    if TYPE_CHECKING:
     pragma: no cover
-    pass
+    if TYPE_CHECKING:
+omit =
+    datar/datasets.py
