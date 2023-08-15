@@ -1,16 +1,29 @@
 
 from .core.load_plugins import plugin as _plugin
+from .core.options import get_option as _get_option
 from .apis.dplyr import *
 
 locals().update(_plugin.hooks.dplyr_api())
-
-from .core.import_names_conflict import (
-    handle_import_names_conflict as _handle_import_names_conflict
-)
-
+__all__ = [key for key in locals() if not key.startswith("_")]
 _conflict_names = {"filter", "slice"}
 
-__all__, _getattr = _handle_import_names_conflict(locals(), _conflict_names)
+if _get_option("allow_conflict_names"):
+    __all__.extend(_conflict_names)
+    for name in _conflict_names:
+        locals()[name] = locals()[name + "_"]
 
-if _getattr is not None:
-    __getattr__ = _getattr
+
+def __getattr__(name):
+    """Even when allow_conflict_names is False, datar.base.sum should be fine
+    """
+    if name in _conflict_names:
+        import sys
+        import ast
+        from executing import Source
+        node = Source.executing(sys._getframe(1)).node
+        if isinstance(node, (ast.Call, ast.Attribute)):
+            # import datar.dplyr as d
+            # d.sum(...)
+            return globals()[name + "_"]
+
+    raise AttributeError
