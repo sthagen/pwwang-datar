@@ -1,5 +1,22 @@
 # Change Log
 
+## 0.15.0
+
+- ✨ Add data who2, household, cms_patient_experience, and
+cms_patient_care
+- ⬆️ Bump datar-pandas to 0.5 to support pandas2 (#186)
+
+## 0.14.0
+
+- ⬆️ Bump pipda to 0.13
+- 🍱 Support dplyr up to 1.1.3
+- 👽️ Align `rows_*()` verbs to align with dplyr 1.1.3 (#188)
+- 🔧 Update pyproject.toml to generate setup.py for poetry
+
+## 0.13.1
+
+- 🎨 Allow `datar.all.filter` regardless of `allow_conflict_names` (#184)
+
 ## 0.13.0
 
 - 👷 Add scripts for codesandbox
