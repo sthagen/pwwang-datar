@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.15.8
+
+- chore(deps): update python-simpleconf to version 0.7
+
 ## 0.15.7
 
 - chore(deps): drop support for python3.8
