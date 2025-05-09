@@ -32,7 +32,7 @@ arrow = ["datar-arrow"]
 pytest = "^8.1"
 pytest-cov = "^6"
 six = "^1.16"
-numpy = "^1.17"
+numpy = "*"
 python-slugify = "^8"
 
 [tool.poetry.group.docs.dependencies]
