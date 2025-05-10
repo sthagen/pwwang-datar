@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.15.9
+
+- ci: ensure Python version is set for setup step
+- chore: update numpy dependency to allow any version
+
 ## 0.15.8
 
 - chore(deps): update python-simpleconf to version 0.7
