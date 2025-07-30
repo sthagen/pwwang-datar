@@ -113,6 +113,7 @@ nav:
         - 'ranking': 'notebooks/ranking.ipynb'
         - 'readme': 'notebooks/readme.ipynb'
         - 'recode': 'notebooks/recode.ipynb'
+        - 'reframe': 'notebooks/reframe.ipynb'
         - 'relocate': 'notebooks/relocate.ipynb'
         - 'rename': 'notebooks/rename.ipynb'
         - 'replace_na': 'notebooks/replace_na.ipynb'

@@ -32,6 +32,7 @@ Reference map of `r-tidyverse-dplyr` can be found [here][1].
 |[filter()][11]|Subset rows using column values| [:material-notebook:][12] |
 |[mutate()][13] [transmute()][14]|Create, modify, and delete columns| [:material-notebook:][15] |
 |[pull()][16]|Extract a single column| [:material-notebook:][17] |
+|[reframe()][142]|Reframe a data frame| [:material-notebook:][142] |
 |[relocate()][18]|Change column order| [:material-notebook:][19] |
 |[rename()][20] [rename_with()][21]|Rename columns| [:material-notebook:][22] |
 |[select()][23]|	Subset columns using their names and types| [:material-notebook:][24] |
@@ -242,3 +243,4 @@ See [datasets][125]
 [139]: ../../api/datar.dplyr.rows/#datar.dplyr.rows.rows_upsert
 [140]: ../../api/datar.dplyr.rows/#datar.dplyr.rows.rows_delete
 [141]: ../../notebooks/rows
+[142]: ../../api/datar.dplyr.reframe/#datar.dplyr.reframe.reframe

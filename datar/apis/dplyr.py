@@ -2272,6 +2272,25 @@ def summarise(_data, *args, _groups: str = None, **kwargs) -> Any:
 summarize = summarise
 
 
+@_register_verb()
+def reframe(_data, *args, **kwargs) -> Any:
+    """Reframe a data frame.
+
+    See original API
+    https://dplyr.tidyverse.org/reference/reframe.html
+
+    Args:
+        _data: A data frame
+        *args: and
+        **kwargs: Name-value pairs, where value is the reframed
+            data for each group
+
+    Returns:
+        A data frame with the reframed columns
+    """
+    raise _NotImplementedByCurrentBackendError("reframe", _data)
+
+
 @_register_verb(dependent=True)
 def where(_data, fn: _Callable) -> Any:
     """Selects the variables for which a function returns True.
