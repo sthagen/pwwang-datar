@@ -37,10 +37,10 @@
 
 
 [1]: ../../notebooks/datar
-[2]: ../../api/datar.datar.verbs/#datar.datar.verbs.get
-[3]: ../../api/datar.datar.verbs/#datar.datar.verbs.flatten
-[4]: ../../api/datar.datar.funcs/#datar.datar.funcs.itemgetter
-[5]: ../../api/datar.datar.funcs/#datar.datar.funcs.attrgetter
-[6]: ../../api/datar.datar.funcs/#datar.datar.funcs.pd_str
-[7]: ../../api/datar.datar.funcs/#datar.datar.funcs.pd_cat
-[8]: ../../api/datar.datar.funcs/#datar.datar.funcs.pd_dt
+[2]: ../../api/datar.apis.datar/#datar.apis.datar.get
+[3]: ../../api/datar.apis.datar/#datar.apis.datar.flatten
+[4]: ../../api/datar.apis.datar/#datar.apis.datar.itemgetter
+[5]: ../../api/datar.apis.datar/#datar.apis.datar.attrgetter
+[6]: ../../api/datar.apis.datar/#datar.apis.datar.pd_str
+[7]: ../../api/datar.apis.datar/#datar.apis.datar.pd_cat
+[8]: ../../api/datar.apis.datar/#datar.apis.datar.pd_dt

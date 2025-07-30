@@ -29,6 +29,6 @@
 |[`runif()`][3]|Generates random deviates for the uniform distribution||
 
 
-[1]: ../../api/datar.base.stats/#datar.base.stats.rnorm
-[2]: ../../api/datar.base.stats/#datar.base.stats.rpois
-[3]: ../../api/datar.base.stats/#datar.base.stats.runif
+[1]: ../../api/datar.apis.base/#datar.apis.base.rnorm
+[2]: ../../api/datar.apis.base/#datar.apis.base.rpois
+[3]: ../../api/datar.apis.base/#datar.apis.base.runif
