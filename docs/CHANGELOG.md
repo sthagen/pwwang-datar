@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.15.10
+
+- ci: update deployment environment to use ubuntu-latest
+- feat: add dplyr.reframe (#210)
+- docs: fix reference map links
+
 ## 0.15.9
 
 - ci: ensure Python version is set for setup step
