@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.15.11
+
+- feat: add generic pipe() function to datar for applying custom functions in piping workflows (#212)
+- chore: update dependances
+- test: fix missing reframe from tests
+
 ## 0.15.10
 
 - ci: update deployment environment to use ubuntu-latest
