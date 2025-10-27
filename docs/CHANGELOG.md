@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.15.12
+
+- chore: update datar-pandas to version ^0.6
+  - fix: fix fct_recode and fct_collapse with ordered factor (pwwang/datar#216)
+  - fix: handle MultiIndex in _agg_result_compatible (pwwang/datar#214)
+  - feat: suport pandas.Grouper() for group_by (pwwang/datar#215)
+- chore: update datar-arrow to version ^0.2
+  - chore: bump pyarrow to ^20
+
 ## 0.15.11
 
 - feat: add generic pipe() function to datar for applying custom functions in piping workflows (#212)
