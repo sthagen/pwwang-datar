@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.15.13
+
+- feat: add environment variables to control verb AST fallback behavior (#219)
+
 ## 0.15.12
 
 - chore: update datar-pandas to version ^0.6
