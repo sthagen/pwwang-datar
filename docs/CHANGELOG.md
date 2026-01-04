@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.15.14
+
+- chore: update python-simpleconf version to ^0.8
+
 ## 0.15.13
 
 - feat: add environment variables to control verb AST fallback behavior (#219)
