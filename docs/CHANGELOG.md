@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.15.15
+
+- docs: update outdated notebook for filter (#223)
+- chore: update python-simpleconf version to ^0.9
+
 ## 0.15.14
 
 - chore: update python-simpleconf version to ^0.8
